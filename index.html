@@ -41,6 +41,7 @@
                 var b = 10;
                 var c;
                 var d;
+                var e = 20;
 
                 c = a + b;
                 d = b - c;
@@ -49,6 +50,7 @@
                 a = "Name";
                 c = a + b;
                 document.write("What happens when a's type is changed?" + c);
+
             </script>
 
 
@@ -57,8 +59,16 @@
         <div class="practice">
             <h1> JavaScript Escape Sequence</h1>
             <p> Write an image to the page </p>
-
+            <script>
+                document.write("<img src = 'img/die1.png'>");
+            </script>
             <p> Write a table to the page </p>
+            document.write("<table border = 1>
+                <tr>
+                    <td> 1 </td>
+                    <td> 2 </td>
+                </tr>
+            </table>");
 
         </div>
 
@@ -66,6 +76,12 @@
             <h1>Window and Document Object </h1>
             <p> Try alert, open, location, url </p>
             <script>
+            // Try document properties
+            document.write("<p>The document was last modified on: " + document.lastModified);
+            document.write("The link was followed from: " + document.referrer);
+
+            // Try window properties
+            window.alert("Pop up window is not good practice.");
 
             </script>
 
