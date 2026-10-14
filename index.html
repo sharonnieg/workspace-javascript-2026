@@ -81,7 +81,7 @@
             document.write("The link was followed from: " + document.referrer);
 
             // Try window properties
-            window.alert("Pop up window is not good practice.");
+            //window.alert("Pop up window is not good practice.");
 
             </script>
 
@@ -102,7 +102,13 @@
             <p id="p2"> Paragraph Number two </p>
             <p id="p3"> Paragraph Number three </p>
             <p>Please write JavaScript code to change the content of each paragraph.​
-            <p>
+            <p> 
+              <script>
+                document.getElementById('p1').innerHTML = "<b> I am changed. </b>";
+                document.getElementById('p2').innerText = "";
+                document.getElementById('p3').textContent = "";
+              </script>  
+            </p>
 
 
         </div>
@@ -112,13 +118,23 @@
             <p> Please enter your numbers </p>
             <script>
                 function calculate() {
-
-
+                    // Get value from first box
+                    var nE1 = document.getElementById('form1');
+                    var num1 = parseFloat(nE1.value);
+                    console.log("Num1 is " + num1);
+                    // Get value from second box
+                    var nE2 = document.getElementById('form2');
+                    var num2 = parseFloat(nE2.value);
+                    console.log("Num2 is " + num2);
+                    // var num2 = parseFloat(document.getElementsByName("num2"[0].value()));
+                    // Get answer
+                    var c = num1 + num2;
+                    document.getElementById("result1").textContent = "Addition Result: " + c;
                 }
             </script>
-            <p> <input type="text" name="addnum1" /> + <input type="text" name="num2">
+            <p> <input type="text" name="addnum1" id="form1" /> + <input type="text" name="num2" id="form2">
                 <input type="button" value="=" onclick="calculate();">
-                <label id="result"> ? </label>
+                <label id="result1"> ? </label>
             </p>
 
         </div>
@@ -132,9 +148,29 @@
                     </label>
                 </p>
 
-                <p id="message">
+                <p id="message1">
 
                 </p>
+                <script>
+                    function checkname(){
+                        // In future, connect database and check name
+                        // alert("Event works"); // For debugging
+                        var name = document.getElementById("cName").value;
+                        document.getElementById("message1").textContent = "Welcome " + name;
+                    }
+                    function checkexist(){
+                        var name = document.getElementById("cName").value;
+                        document.getElementById("message1").textContent = "No, " + name + " is already in system." 
+                    }
+
+                    // Get element
+                    var iE = document.getElementById("cName");
+                    // Associate event with action
+                    iE.addEventListener("blur", checkname, false);
+                    // Try with click
+                    // iE.addEventListener("onclick", checkname, false);
+                    // iE.addEventListener("focus", checkname, false);
+                </script>
 
                 <p>
                     <label> Email:
